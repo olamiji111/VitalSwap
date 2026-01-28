@@ -1,68 +1,130 @@
+@import "tailwindcss";
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+  --background: #EBEFF4;
+  --foreground: #111827;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+@theme {
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+
+  --color-white-50: #d9ecff;
+  --color-black-50: #1c1c21;
+  --color-black-100: #0e0e10;
+  --color-black-200: #282732;
+  --color-blue-50: #839cb5;
+  --color-blue-100: #2d2d38;
+  --color-primary-50: #f0faff;
+  /* very light, almost white with blue hue */
+  --color-primary-100: #def3ff;
+  /* pale baby blue */
+  --color-primary-200: #bae6fd;
+  /* soft sky blue */
+  --color-primary-300: #75dcff;
+  /* ✅ from you */
+  --color-primary-400: #2ccbff;
+  /* ✅ from you */
+  --color-primary-500: #00bbff;
+  /* ✅ your brand aqua */
+  --color-primary-600: #009ad6;
+  /* darker variant */
+  --color-primary-700: #007aa8;
+  /* teal-blue */
+  --color-primary-800: #005c7d;
+  /* deep ocean blue */
+  --color-primary-900: #003d52;
 }
 
+html,
 body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
 }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+@layer base {
+
+  h1 {
+    @apply mx-auto max-w-4xl text-center text-5xl font-bold leading-tight tracking-[-1%] text-white sm:text-[64px] sm:leading-[76px];
+  }
+
+  h2 {
+    @apply text-2xl font-bold text-foreground sm:text-3xl;
+  }
+
+
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+@utility flex-center {
+  @apply flex items-center justify-center;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+@utility flex-between {
+  @apply flex items-center justify-between;
+}
+
+@utility col-center {
+  @apply flex flex-col items-center justify-center;
+}
+
+@utility col-end {
+  @apply flex flex-col items-end justify-end
+}
+
+@utility abs-center {
+  @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2;
+}
+
+@utility h3-semibold {
+  @apply font-semibold text-xl;
+}
+
+@utility base-semibold {
+  @apply font-semibold text-base;
+}
+
+@utility small-medium {
+  @apply font-medium text-xs;
+}
+
+
+@layer components {
+  .padding-x {
+    @apply px-5 md:px-10;
   }
-  a:hover {
-    color: #747bff;
+
+  .padding-x-lg {
+    @apply px-5 md:px-10;
   }
-  button {
-    background-color: #f9f9f9;
+
+  .section-padding {
+    @apply px-5 md:px-10 md:mt-40 mt-20;
   }
+
+  .mt-responsive {
+    @apply xl:mt-20 md:mt-0 mt-40;
+  }
+
+  header {
+    @apply bg-[#fafafa] flex-between px-1.5 transition-colors duration-300 py-3 sticky shadow-xs max-w-full backdrop-blur-3xl;
+
+    img {
+      @apply object-center;
+    }
+
+  }
+
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
 }
