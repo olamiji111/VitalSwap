@@ -4,12 +4,14 @@ import { Dark } from "../components/icons/iconst";
 const Header = () => {
   return (
     <header>
+
       <img
         height={100}
         alt="vitalswap"
         src="/vitalswap-logo-.svg"
         width={100}
       />
+      <div className="absolute left-[240px] top-0 h-full w-px bg-zinc-300" />
       <div className="flex-center gap-x-3 space-x-2 px-2">
         <div className="border border-transparent px-3  py-1.5 gap-1.5 rounded-full flex-center bg-green-100 ">
           <span className="inline-flex h-3 w-3 rounded-full bg-green-500"></span>
@@ -28,8 +30,6 @@ const Header = () => {
         </div>
 
       </div>
-
-
 
 
     </header>
